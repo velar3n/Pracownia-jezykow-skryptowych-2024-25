@@ -10,9 +10,9 @@ In case you can't finish your game - it will be saved automatically, load it lat
 This script runs in a Bash environment:
 1. Save 'tic_tac_toe.sh' locally
 2. Run the game: 
-'''bash
+```bash
 ./tic_tac_toe.sh
-'''
+```
 
 ## How to win
 The objective is to get three of your symbols in a row, either horizontally, vertically, or diagonally. The game will announce if there’s a winner or if it ends in a draw.
