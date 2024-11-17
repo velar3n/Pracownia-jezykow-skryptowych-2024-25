@@ -1,8 +1,6 @@
-local board = {}
+local block = require 'block'
 
--- grid parameters
-WIDTH, HEIGHT, SIZE = 12, 25, 35
-local margin = WIDTH * SIZE
+local board = {}
 
 -- colors
 BLACK = {0, 0, 0}
@@ -16,6 +14,28 @@ function board.draw_board()
         for j = 0, WIDTH - 1 do
             if i == 0 or i == HEIGHT - 1 or j == 0 or j == WIDTH - 1 then
                 love.graphics.rectangle("fill", j * SIZE, i * SIZE, SIZE, SIZE)
+            end
+        end
+    end
+    -- Draw placed blocks on the board
+    for i = 0, HEIGHT - 1 do
+        for j = 0, WIDTH - 1 do
+            if board[i] and board[i][j] == "BLOCK" then
+                love.graphics.setColor(love.math.colorFromBytes(159, 31, 11))
+                love.graphics.rectangle("fill", j * SIZE, i * SIZE, SIZE, SIZE)
+            end
+        end
+    end
+    -- Draw the current active block
+    if block.shape then
+        love.graphics.setColor(love.math.colorFromBytes(block.color[1], block.color[2], block.color[3]))
+        for i = 1, 4 do
+            for j = 1, 4 do
+                if block.shape[block.rotation][i][j] == 1 then
+                    local board_x = block.x + j - 1
+                    local board_y = block.y + i - 1
+                    love.graphics.rectangle("fill", board_x * SIZE, board_y * SIZE, SIZE, SIZE)
+                end
             end
         end
     end
@@ -37,6 +57,19 @@ function board.draw_sidebar()
     love.graphics.setFont(love.graphics.newFont(20))
     love.graphics.print("SPACE - ROTATE", margin + 2.5 * SIZE, 16 * SIZE)
     love.graphics.print("ESC - QUIT", margin + 2.5 * SIZE, 18 * SIZE)
+end
+
+function board.set_fields()
+    for i = 0, HEIGHT - 1 do
+        board[i] = {}
+        for j = 0, WIDTH - 1 do
+            if i == 0 or i == HEIGHT - 1 or j == 0 or j == WIDTH - 1 then
+                board[i][j] = "WALL"
+            else
+                board[i][j] = "FREE"
+            end
+        end
+    end
 end
 
 return board
