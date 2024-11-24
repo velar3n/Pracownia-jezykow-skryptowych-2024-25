@@ -19,8 +19,8 @@
 - [ ] 4.5 Posiada bramę oraz minimum 2 wieże
 - [ ] 5.0 Zamek ma minimum dwa poziomy (piętra) na które można wejść z zewnątrz
 
-## RUBY - Crawler
-- [ ] 3.0 Należy pobrać podstawowe dane o produktach (tytuł, cena), dowolna kategoria
+## RUBY - Crawler (Empik)
+- [x] 3.0 Należy pobrać podstawowe dane o produktach (tytuł, cena), dowolna kategoria
 - [ ] 3.5 Należy pobrać podstawowe dane o produktach wg słów kluczowych
 - [ ] 4.0 Należy rozszerzyć dane o produktach o dane szczegółowe widoczne tylko na podstronie o produkcie
 - [ ] 4.5 Należy zapisać linki do produktów
