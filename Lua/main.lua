@@ -1,5 +1,5 @@
 _G.love = require("love")
-local block = require 'block'
+block = require 'block'
 board = require 'board'
 
 -- grid parameters
@@ -19,8 +19,12 @@ function love.update(dt)
         time = time + dt
         if time > update_speed then
             block.move_block_down()
+            check_game_over()
             time = 0
         end
+    end
+    if state == "LOST" then
+        board.draw_game_over()
     end
 end
 
@@ -33,7 +37,42 @@ end
 
 function love.draw() 
     love.graphics.setBackgroundColor(love.math.colorFromBytes(BLACK))
-    board.draw_board()
     board.draw_sidebar()
+    if state == "GAME" then
+        board.draw_board()
+    end
+    if state == "LOST" then
+        board.draw_game_over()
+    end
 end
+
+function love.keypressed(key, scancode, isrepeat)
+    if scancode == "a" and state == "GAME" then
+        block.move_block_left()
+    end
+    if scancode == "d" and state == "GAME" then
+        block.move_block_right()
+    end
+    if scancode == "space" and state == "GAME" then
+        block.rotate_block()
+    end
+    if scancode == "s" and state == "GAME" then
+        update_speed = 0.05
+    end
+end
+
+function love.keyreleased(scancode)
+    if scancode == "s" and state == "GAME" then
+        update_speed = 0.5
+    end
+end
+
+function check_game_over()
+    for i = 1, WIDTH - 1 do
+        if board[1][i] == "BLOCK" then
+            state = "LOST"
+        end
+    end
+end
+
 

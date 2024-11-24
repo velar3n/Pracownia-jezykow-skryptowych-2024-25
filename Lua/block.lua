@@ -45,7 +45,7 @@ local block_colors = {
 
 
 function block.generate_block()
-    if next_block == nil then -- beginning state
+    if block.next_shape == nil then
         block.next_shape = shapes[math.random(1, #shapes)]
         block.next_color = block_colors[math.random(1, #block_colors)]
     end
@@ -67,15 +67,38 @@ function block.move_block_down()
         block.y = block.y + 1
     else
         block.mark_block_on_board()
+        local lines_cleared = board.remove_line()
         block.generate_block()
         block.place_block()
     end
 end
 
-function block.check_collision()
+function block.move_block_left()
+    block.x = block.x - 1
+    if block.check_collision() then
+        block.x = block.x + 1 
+    end
+end
+
+function block.move_block_right()
+    block.x = block.x + 1
+    if block.check_collision() then
+        block.x = block.x - 1
+    end
+end
+
+function block.rotate_block()
+    local new_rotation = (block.rotation % 4) + 1
+    if not block.check_collision(new_rotation) then
+        block.rotation = new_rotation
+    end
+end
+
+function block.check_collision(new_rotation)
+    local rotation = new_rotation or block.rotation
     for i = 1, 4 do
         for j = 1, 4 do
-            if block.shape[block.rotation][i][j] == 1 then
+            if block.shape[rotation][i][j] == 1 then
                 local board_x = block.x + j - 1
                 local board_y = block.y + i
 
