@@ -24,8 +24,14 @@ end
 
 def get_page(search_query)
     url = "https://www.empik.com/szukaj/produkt?q=#{search_query}"
-    doc = Nokogiri::HTML(URI.open(url))
-    return doc
+    puts url
+    begin
+        doc = Nokogiri::HTML(URI.open(url))
+        return doc
+    rescue OpenURI::HTTPError => e
+        puts "Error fetching search results: #{e.message}"
+        return nil
+    end
 end
 
 def get_product_details(url)
@@ -75,6 +81,10 @@ end
 
 search_query = ARGV.join().gsub(' ', "%20")
 page = get_page(search_query)
-products = search_products(page)
-products.each(&:save)
-puts "#{products.length} products saved to database."
+if page
+    products = search_products(page)
+    products.each(&:save)
+    puts "#{products.length} products saved to database."
+else
+    puts "Failed to fetch the search page."
+end
