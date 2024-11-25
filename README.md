@@ -23,7 +23,7 @@
 - [x] 3.0 Należy pobrać podstawowe dane o produktach (tytuł, cena), dowolna kategoria
 - [x] 3.5 Należy pobrać podstawowe dane o produktach wg słów kluczowych
 - [ ] 4.0 Należy rozszerzyć dane o produktach o dane szczegółowe widoczne tylko na podstronie o produkcie
-- [ ] 4.5 Należy zapisać linki do produktów
+- [x] 4.5 Należy zapisać linki do produktów
 - [ ] 5.0 Dane należy zapisać w bazie danych np. SQLite via Sequel
 
 ## PYTHON - Czatbot
