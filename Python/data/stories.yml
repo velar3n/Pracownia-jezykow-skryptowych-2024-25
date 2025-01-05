@@ -2,29 +2,58 @@ version: "3.1"
 
 stories:
 
-- story: happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - story: user asks if restaurant is open now
+    steps:
+      - intent: is_open_now
+      - action: action_is_open_now 
 
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
+  - story: user asks if restaurant is open at specific time
+    steps:
+      - intent: is_open_on
+      - action: action_is_open_on 
 
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - story: user asks if restaurant is open on a specific day
+    steps:
+      - intent: open_hours
+      - action: action_open_hours 
+
+  - story: user asks about the menu
+    steps:
+      - intent: list_menu
+      - action: action_list_menu 
+
+  - story: user places order
+    steps:
+      - or:
+        - intent: place_order
+        - intent: additional_request
+      - action: action_place_order 
+      - action: utter_further_order
+  
+  - story: user orders another item
+    steps: 
+      - intent: affirm
+      - action: utter_ask_for_item
+      - or:
+        - intent: place_order
+        - intent: additional_request
+      - action: action_place_order 
+      - action: utter_further_order
+
+  - story: user orders pick up
+    steps:
+      - intent: deny
+      - action: action_confirm_order
+      - action: utter_ask_delivery
+      - intent: deny
+      - action: action_confirm_pick_up
+
+  - story: user orders with delivery
+    steps:
+      - intent: deny
+      - action: action_confirm_order
+      - action: utter_ask_delivery
+      - intent: affirm
+      - action: utter_address
+      - intent: address
+      - action: action_confirm_delivery

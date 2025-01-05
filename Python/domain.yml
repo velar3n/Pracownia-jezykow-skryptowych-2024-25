@@ -5,29 +5,37 @@ intents:
   - goodbye
   - affirm
   - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - is_open_now
+  - is_open_on
+  - open_hours
+  - list_menu
+  - place_order
+  - additional_request
+  - address
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+    - text: "Hello, how can I help you?"
+    - text: "Welcome to our restaurant! What can I do for you?"
+    - text: "Welcome, how may I assist you today?"
+  
+   utter_goodbye:
+    - text: "Goodbye"
+    - text: "Goodbye! See you next time!"
+    - text: "Goodbye! Have a great day!"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_further_order:
+    - text: "Do you want to order anything else?."
+    - text: "Perfect, do you want to order another item?"
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_ask_for_item:
+    - text: "What would you like to order?"
+    - text: "What other meal would you like to order?"
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_address:
+    - text: "Please provide your address for delivery."
+    - text: "Thank you for the order, please provide your address for delivery."
 
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
 
 session_config:
   session_expiration_time: 60
