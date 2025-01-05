@@ -6,12 +6,72 @@ intents:
   - affirm
   - deny
   - is_open_now
-  - is_open_on
-  - open_hours
+  - is_open_on_time
+  - is_open_on_day
   - list_menu
   - place_order
   - additional_request
   - address
+
+actions:
+  - action_is_open_now
+  - action_is_open_on_time
+  - action_is_open_on_day
+  - action_list_menu
+  - action_place_order
+  - action_confirm_order
+  - action_confirm_pick_up
+  - action_confirm_delivery
+
+entities:
+  - day
+  - hour
+  - item
+  - extra_keyword
+  - extra_item
+  - address
+
+slots:
+  day:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: day
+  hour:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: hour
+  item:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: item
+  extra_keyword:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: extra_keyword
+  extra_item:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: extra_item
+  address:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: address
+  order:
+    type: list
+    mappings:
+      - type: custom
 
 responses:
   utter_greet:
@@ -19,18 +79,17 @@ responses:
     - text: "Welcome to our restaurant! What can I do for you?"
     - text: "Welcome, how may I assist you today?"
   
-   utter_goodbye:
+  utter_goodbye:
     - text: "Goodbye"
     - text: "Goodbye! See you next time!"
     - text: "Goodbye! Have a great day!"
 
-  utter_further_order:
-    - text: "Do you want to order anything else?."
-    - text: "Perfect, do you want to order another item?"
-
   utter_ask_for_item:
     - text: "What would you like to order?"
     - text: "What other meal would you like to order?"
+  
+  utter_ask_delivery:
+    - text: "We offer delivery and pickup. Do you want the order to be delivered to your address?"
 
   utter_address:
     - text: "Please provide your address for delivery."

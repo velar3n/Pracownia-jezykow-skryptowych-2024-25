@@ -9,13 +9,13 @@ stories:
 
   - story: user asks if restaurant is open at specific time
     steps:
-      - intent: is_open_on
-      - action: action_is_open_on 
+      - intent: is_open_on_time
+      - action: action_is_open_on_time 
 
   - story: user asks if restaurant is open on a specific day
     steps:
-      - intent: open_hours
-      - action: action_open_hours 
+      - intent: is_open_on_day
+      - action: action_is_open_on_day 
 
   - story: user asks about the menu
     steps:
@@ -28,7 +28,6 @@ stories:
         - intent: place_order
         - intent: additional_request
       - action: action_place_order 
-      - action: utter_further_order
   
   - story: user orders another item
     steps: 
@@ -38,7 +37,6 @@ stories:
         - intent: place_order
         - intent: additional_request
       - action: action_place_order 
-      - action: utter_further_order
 
   - story: user orders pick up
     steps:

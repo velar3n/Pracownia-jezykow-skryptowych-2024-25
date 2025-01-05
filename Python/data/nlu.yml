@@ -5,14 +5,15 @@ nlu:
   examples: |
     - hey
     - hello
+    - helo
     - hi
     - hello there
     - good morning
     - good evening
-    - moin
+    - god morning
     - hey there
     - let's go
-    - hey dude
+    - lets go
     - goodmorning
     - goodevening
     - good afternoon
@@ -43,6 +44,7 @@ nlu:
     - no
     - n
     - never
+    - nope
     - I don't think so
     - don't like that
     - no way
@@ -50,61 +52,92 @@ nlu:
 
 - intent: is_open_now
   examples: | 
+    - is the restaurant open
+    - iz the restaurant open
     - is the restuarant open
+    - is teh restaurant open
     - is the restaurant open now
-    - is the restaurant currently open
-    - are you open
+    - is the restuarant oppen now
     - are you open now
+    - ar you open now
+    - are yu open now
     - are you currently open
+    - are you curently open
+    - ar you currently open
+    - are yu curently open
 
-- intent: is_open_on
+- intent: is_open_on_time
   examples: |
     - are you open at [2:30PM](hour) on [tuesday](day)?
+    - are yu open at [2:30PM](hour) on [tuesday](day)?
     - is the restaurant open on [monday](day) at [5:30PM](hour)?
+    - iz the restaurant open on [monday](day) at [5:30PM](hour)?
     - will you be open at [13:00](hour) on [saturday](day)?
-    - can I visit at [4:30PM](hour) on [monday](day)?
+    - will yu be oppen at [13:00](hour) on [saturday](day)?
+    - can i visit at [4:30PM](hour) on [monday](day)?
+    - can i vissit at [4:30PM](hour) on [monday](day)?
 
-- intent: open_hours
+- intent: is_open_on_day
   examples: |
     - is the restaurant open on [monday](day)
+    - iz the restaurant open on [monday](day)
     - will restaurant be open on [wednesday](day)
+    - will restuarant be oppen on [wednesday](day)
     - what are the opening hours on [wednesday](day)
+    - wht are the oppening hours on [wednesday](day)
     - what are opening hours on [saturday](day)
+    - wht ar oppening hours on [saturday](day)
 
 - intent: list_menu
   examples: |
     - list the menu
+    - list teh menu
     - show the menu
+    - show teh menu
     - show me the menu
+    - show me teh menu
     - what can i eat here
-    - what do you have to eat
-    - what is the menu
-    - what meals do you serve
+    - wht can i eat here
 
 - intent: place_order
   examples: | 
     - i'd like to order a [burger](item)
+    - i'd like to orderr a [burger](item)
     - can i get a [pizza](item)
+    - can i geet a [pizza](item)
     - i want a [hot-dog](item), please
+    - i want a [hot-dog](item) plz
     - i want a [lasagne](item)
     - i want [lasagne](item)
     - add a [burger](item) to my order
+    - add a [burger](item) to my ordrr
     - i'd like a [spaghetti carbonara](item)
+    - i'd like a [spaghetti carbnara](item)
     - one [spaghetti carbonara](item)
+    - one [spaghetti carbonara](item) plz
 
 - intent: additional_request
   examples: |
     - i'd like to order a [burger](item) but [without](extra_keyword) [pickles](extra_item)
+    - i'd like to orderr a [burger](item) but [without](extra_keyword) [pickels](extra_item)
     - can i add a [pizza](item) to my order [with](extra_keyword) [extra cheese](extra_item)?
+    - can i add a [pizza](item) to my ordrr [wth](extra_keyword) [extra chees](extra_item)?
     - one [lasagne](item) [without](extra_keyword) [tomatoes](extra_item)?
+    - one [lasagne](item) [witout](extra_keyword) [tomatos](extra_item)?
     - i want [spaghetti carbonara](item), but [no](extra_keyword) [bacon](extra_item)
+    - i want [spaghetti carbnara](item), but [no](extra_keyword) [bacn](extra_item)
     - can i have a [pizza](item) [with extra](extra_keyword) [olives](extra_item)?
-    - add [extra sauce](extra_item) to the [spaghetti](item))
-    - i want a [pizza](item) with [extra mushrooms](extra_item)
+    - can i hav a [pizza](item) [with xtra](extra_keyword) [olivs](extra_item)?
+    - i want a [pizza](item) [with](extra_keyword) [extra mushrooms](extra_item)
+    - i want a [pizza](item) [wit](extra_keyword) [xtra mushroms](extra_item)
     - can i get a [lasagne](item) [without](extra_keyword) [onions](extra_item)?
+    - can i get a [lasagne](item) [witout](extra_keyword) [onons](extra_item)?
 
 - intent: address
-    examples: |
-      - my address is [ul. Przykładowa 11](address)
-      - deliver to [Road 122](address)
-      - address for delivery is [Lipcowa 2](address)
+  examples: |
+    - my address is [ul. Przykładowa 11](address)
+    - my adress iz [ul. Przykładowa 11](address)
+    - deliver to [Road 122](address)
+    - deliverr to [Road 122](address)
+    - address for delivery is [Lipcowa 2](address)
+    - adress for delivry iz [Lipcowa 2](address)

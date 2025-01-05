@@ -1,4 +1,4 @@
-import string
+import random
 
 def generate_mistakes(word):
     typos = []
@@ -13,20 +13,18 @@ def generate_mistakes(word):
         typo = word[:i] + word[i] + word[i:]
         typos.append(typo)
 
-    # Replace a letter with another
-    for i in range(len(word)):
-        for replacement in string.ascii_lowercase:
-            if replacement != word[i]:  # Avoid replacing a letter with itself
-                typo = word[:i] + replacement + word[i+1:]
-                typos.append(typo)
-    
+    # Replace random letter
+    index = random.randint(0, len(intent) - 1)
+    random_char = chr(random.randint(97, 122))
+    typos.append(intent[:index] + random_char + intent[index + 1:])
+
     return typos
 
 while True:
-    word = input("Provide word: ")
-    if word.lower() == "exit":
+    intent = input("Provide intent: ")
+    if intent.lower() == "exit":
         break
 
-    mistakes = generate_mistakes(word)
+    mistakes = generate_mistakes(intent)
     for mistake in mistakes:
         print(f"- {mistake}")
