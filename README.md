@@ -13,8 +13,8 @@
 - [ ] 5.0 Wersja na iOS lub Android z implementacją touch zamiast klawiatury
 
 ## JS - Zamek w Minecraft
-- [ ] 3.0 Prosty zamek wykorzystując minimum 5 różnych rodzajów bloków
-- [ ] 3.5 Posiada mimum 4 okna
+- [x] 3.0 Prosty zamek wykorzystując minimum 5 różnych rodzajów bloków
+- [x] 3.5 Posiada mimum 4 okna
 - [ ] 4.0 Posiada fosę oraz most
 - [ ] 4.5 Posiada bramę oraz minimum 2 wieże
 - [ ] 5.0 Zamek ma minimum dwa poziomy (piętra) na które można wejść z zewnątrz
@@ -27,7 +27,7 @@
 - [x] 5.0 Dane należy zapisać w bazie danych np. SQLite via Sequel
 
 ## PYTHON - Czatbot
-- [ ] 0.0 Slack integreation
+- [x] 0.0 Slack integreation
 - [x] 3.0 A chatbot with the trained ability to handle at least 3 ways to phrase those intents including typos / mistakes:
     - Answer the question if the restaurant is open on a given date/time
     - List the menu items
