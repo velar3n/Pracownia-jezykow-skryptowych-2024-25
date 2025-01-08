@@ -6,7 +6,7 @@ This is a game of tic-tac-toe implemented as a command-line game in Bash. This g
 Player vs. Player or Player vs. Computer. 
 In case you can't finish your game - it will be saved automatically, load it later to resume the unfinished game.
 
-## Set it up
+## Run the script
 This script runs in a Bash environment:
 1. Save 'tic_tac_toe.sh' locally
 2. Run the game: 

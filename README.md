@@ -15,8 +15,8 @@
 ## JS - Zamek w Minecraft
 - [x] 3.0 Prosty zamek wykorzystując minimum 5 różnych rodzajów bloków
 - [x] 3.5 Posiada mimum 4 okna
-- [ ] 4.0 Posiada fosę oraz most
-- [ ] 4.5 Posiada bramę oraz minimum 2 wieże
+- [x] 4.0 Posiada fosę oraz most
+- [x] 4.5 Posiada bramę oraz minimum 2 wieże
 - [ ] 5.0 Zamek ma minimum dwa poziomy (piętra) na które można wejść z zewnątrz
 
 ## RUBY - Crawler (Empik)
